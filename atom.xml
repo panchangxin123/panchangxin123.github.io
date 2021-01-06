@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://panchangxin123.github.io</id>
+    <title>热爱我的热爱</title>
+    <updated>2021-01-06T16:33:05.768Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://panchangxin123.github.io"/>
+    <link rel="self" href="https://panchangxin123.github.io/atom.xml"/>
+    <subtitle>热爱我的热爱</subtitle>
+    <logo>https://panchangxin123.github.io/images/avatar.png</logo>
+    <icon>https://panchangxin123.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, 热爱我的热爱</rights>
+    <entry>
+        <title type="html"><![CDATA[HelloWorld]]></title>
+        <id>https://panchangxin123.github.io/post/helloworld/</id>
+        <link href="https://panchangxin123.github.io/post/helloworld/">
+        </link>
+        <updated>2021-01-06T16:31:18.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="测试">测试</h1>
+<p>这是删除原博客后,使用Gridea创建的新博客的第一篇测试文章.</p>
+<hr>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="测试">测试</h1>
+<p>这是删除原博客后,使用Gridea创建的新博客的第一篇测试文章.</p>
+<hr>
+<!-- more -->
+<p>[*] toggle</p>
+<ul>
+<li>abc</li>
+<li>bbc</li>
+<li>ccc</li>
+</ul>
+<ol>
+<li>aaa</li>
+<li>bbb</li>
+<li>ccc</li>
+</ol>
+]]></content>
+    </entry>
+</feed>
