@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://panchangxin123.github.io</id>
     <title>热爱我的热爱</title>
-    <updated>2021-01-06T16:44:49.104Z</updated>
+    <updated>2021-01-06T17:00:24.442Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://panchangxin123.github.io"/>
     <link rel="self" href="https://panchangxin123.github.io/atom.xml"/>
@@ -11,30 +11,15 @@
     <icon>https://panchangxin123.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 热爱我的热爱</rights>
     <entry>
-        <title type="html"><![CDATA[HelloWorld]]></title>
+        <title type="html"><![CDATA[Notion]]></title>
         <id>https://panchangxin123.github.io/post/helloworld/</id>
         <link href="https://panchangxin123.github.io/post/helloworld/">
         </link>
         <updated>2021-01-06T16:31:18.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="测试">测试</h1>
-<p>这是删除原博客后,使用Gridea创建的新博客的第一篇测试文章.</p>
+        <content type="html"><![CDATA[<p>All in one workspace!</p>
 <hr>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="测试">测试</h1>
-<p>这是删除原博客后,使用Gridea创建的新博客的第一篇测试文章.</p>
-<hr>
-<!-- more -->
-<p>[x] toggle</p>
-<ul>
-<li>abc</li>
-<li>bbc</li>
-<li>ccc</li>
-</ul>
-<ol>
-<li>aaa</li>
-<li>bbb</li>
-<li>ccc</li>
-</ol>
+<p>Notion是一款提供笔记、任务、数据库、看板、维基、日历和提醒等组件的工具,可以用于知识管理,笔记记录,项目管理,团队协作. 因为他的可定制化超强,所以可以通过不同的组合打造适合每一个人的每一项需求, 总之 All in one workspace!<br>
+<img src="https://panchangxin123.github.io/post-images/1609952315036.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
