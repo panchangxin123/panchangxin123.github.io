@@ -4,7 +4,7 @@
   <title><![CDATA[热爱我的热爱]]></title>
   <link href="https://pcxblog.top/atom.xml" rel="self"/>
   <link href="https://pcxblog.top/"/>
-  <updated>2021-03-25T12:57:16+08:00</updated>
+  <updated>2021-03-25T12:57:19+08:00</updated>
   <id>https://pcxblog.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -19,6 +19,8 @@
     <updated>2021-03-25T11:23:01+08:00</updated>
     <id>https://pcxblog.top/16166425816536.html</id>
     <content type="html"><![CDATA[
+<p><img src="media/16166425816536/photo-1480694313141-fce5e697ee25.jpeg" alt="network"/></p>
+
 <h2 id="toc_0">解释</h2>
 
 <p>CPM，“按展示量付费”就是CPM的通俗表达方式。在一个CPM的广告系列中，一个广告主向在移动设备上某个广告的每一千次展示支付协商好的竞价。但由于CPM广告主们是为展示量，因此那些想要通过转化而实现品牌知名度优化的商家们更倾向于选择这种广告付费模式。</p>
@@ -31,7 +33,7 @@
 
 <p>使用CPI模式广告最明显的好处体现在成本上。但看竞价，CPI的竞价一般要高于CPC和CPM，但平均每次安装的花费会使整个广告系列的花费低于CPC和CPM。由于开发者们仅在每个用户的安装量上进行支出，这就能最大限度地减少开发者们在未转化为安装量上的流量的超支的风险。因此，许多开发者们选择了这种广告模式。</p>
 
-<h2 id="toc_2">CPI缺点：</h2>
+<h2 id="toc_2">CPM缺点：</h2>
 
 <p>1、对流量的质量把控有限 。在使用不透明的广告网络时，广告主们会发现他们会很难控制他们展示广告流量的质量。同时，这也是因为广告网络平台有鼓励大量安装量的驱动力，并且别忘了他们还会从每次安装的收入所得中扣除佣金，许多广告网络平台因此而捡到了大量的便宜，并且将低质量的流量提供给CPI广告主。</p>
 
@@ -72,6 +74,8 @@
     <updated>2021-03-25T11:22:50+08:00</updated>
     <id>https://pcxblog.top/16166425702444.html</id>
     <content type="html"><![CDATA[
+<p><img src="media/16166425702444/photo-1541537103745-ea3429c65dc4.jpeg" alt="network"/></p>
+
 <p>IOS要更新隐私协议，未来还不知道怎么样。</p>
 
 ]]></content>
@@ -96,8 +100,6 @@
     <updated>2021-03-24T18:43:04+08:00</updated>
     <id>https://pcxblog.top/16165825844331.html</id>
     <content type="html"><![CDATA[
-<p><img src="media/16165825844331/network.jpeg" alt="network"/></p>
-
 <h2 id="toc_0">一：通讯协议综述</h2>
 
 <h2 id="toc_1">二：底层网络知识</h2>
