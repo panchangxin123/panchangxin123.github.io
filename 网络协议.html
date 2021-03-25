@@ -257,7 +257,24 @@ Hub</p>
 								<p>交换机
 
 如果在办公大楼里将会有成百上千个网口，此时一台交换机已经不够用了，就需要多台交换机，交换机之间连接起来就形成了一个稍微复杂的拓扑结构。
-</p> 
+
+多交换机理想环境
+
+图中的LAN理解为Hub集线器，它会广播局域网内所有的消息给每一台机器。
+
+如上图所示，2个交换机共同连接着3个局域网时。
+当机器1想要发给机器4消息时，机器1知道机器4的IP地址但是不知道MAC地址会进行：
+
+
+机器1发起广播，机器2和交换机A会收到。
+交换机A发起广播交换机B和机器3会收到。
+交换机B发起广播机器4和5会收到.
+机器4主动回应ARP请求。
+
+
+环路问题
+
+这是比较理想的情况，但是当办公室里的交换机越来越多不可</p> 
 							</div> 
 						</a> 
 <!-- 自定义Post颜色 -->
@@ -275,6 +292,147 @@ Hub</p>
 								 
 								<div class="item-meta-ico bg-ico-book" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
 								</div>
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+                         	<div class="item-thumb bg-deepgrey" style="background-image:url();">
+						
+						</div> 
+						<a href="16166868899179.html"> 
+							<div class="item-desc"> 
+								<p>
+ICMP协议是IP层的附属协议，是介于IP层和TCP层之间的协议，一般认为属于IP层协议。 IP协议用它来与其他主机或路由器交换错误报文和其他的一些网络情况。 在ICMP包中携带了控制信息和故障恢复信息。 主要用于路由器主机向其他路由器或者主机发送出错报文的控制信息。
+
+
+我们想要查看本机与另一台机器是否连通经常会使用ping。
+
+ping是基于ICMP协议工作的全称 Internet Control Message Protocol，就是互联网控制报文协议。
+
+网络包在异常复杂的网络环境中传输时，常常会遇到各种各样的问题。当遇到问题的时候，网络包总不能“死个不明不白”要传出消息来，报告情况</p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166868899179.html">五：ICMP 与 ping</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								
+		   						<div class="item-meta-ico bg-ico-note" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+		   						</div> 
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+                         	<div class="item-thumb bg-deepgrey" style="background-image:url();">
+						
+						</div> 
+						<a href="16166884559498.html"> 
+							<div class="item-desc"> 
+								<p>此时公司里已经使用交换机组成了局域网，现在有连接外网的需求，有两种办法：
+
+双网卡
+局域网中一台电脑再插入一张新网卡，这样这台电脑就有2张网卡，一个插在局域网上，一个插在外网上。
+连接外网的网卡要按照外网的要求设置IP地址。
+这种情况如果局域网任何一台电脑需要上网，就必须同时开着双网卡这台电脑。
+
+路由器
+路由器会有内网网口和外网网口，内网网口连接局域网，外网网口连接外网。
+本质与双网卡电脑功能一样。
+同样有人想要上网，就必须开着路由器。
+
+当双网卡电脑设置正确可以正常上网之后，其他电脑也要正常上网就需要配置各自的网卡。
+DHCP 是可以默认配置的。在进行网卡配置的时候，除了 IP 地址，还需</p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166884559498.html">六：网关</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								
+		   						<div class="item-meta-ico bg-ico-note" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+		   						</div> 
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+                         	<div class="item-thumb bg-deepgrey" style="background-image:url();">
+						
+						</div> 
+						<a href="16166917492845.html"> 
+							<div class="item-desc"> 
+								<p></p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166917492845.html">七：路由协议</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								
+		   						<div class="item-meta-ico bg-ico-note" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+		   						</div> 
 								
 
 		   						<div class="item-meta-cat">
@@ -329,7 +487,16 @@ Hub</p>
              
             
             <li>
-            <a href="%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html">网络协议&nbsp;(4)</a>
+            <a href="%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html">网络协议&nbsp;(7)</a>
+            <p>
+            
+            </p>
+            </li>
+            
+             
+            
+            <li>
+            <a href="Unity.html">Unity&nbsp;(1)</a>
             <p>
             
             </p>
@@ -350,6 +517,12 @@ Hub</p>
       <div class="meta-item meta-comments">
           <h2 class="meta-title">RECENT POSTS</h2>
 
+          
+          
+         <li>
+           <a href="16166917645957.html">帧同步</a><br>
+         </li>
+          
           
           
          <li>
@@ -376,9 +549,11 @@ Hub</p>
           
           
           
-         <li>
-           <a href="16166745434574.html">三：物理层 和 链路层</a><br>
-         </li>
+          
+          
+          
+          
+          
           
           
           
