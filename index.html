@@ -193,15 +193,20 @@ IOS要更新隐私协议，未来还不知道怎么样。
 							<div class="item-desc"> 
 								<p>
 
-一：通讯协议
+当收到一个网络包时，会先从Buffer中摘掉二层的头，查看里面的MAC地址和本机是否相符，如果相符则摘掉三层的头，摘掉IP头，看看目标IP地址，如果目标IP地址和自己相符。则代表这个网络包是发给自己的。 如果目标IP地址和自己不符，则代表这个网路包是希望自己转发出去的。
+为什么判断过MAC地址后又判断IP地址呢？是因为要判断自己的IP是不是最终目的地，如果不是则需要帮转发出去。
+接下来摘掉四层的头查看端口号 然后交给监听此端口的程序处理。 
 
-网络分层
-
-复杂的程序都要分层。 例如我们写的项目代码还要分成：controller层,service层，dao层。 网络分层：(由底向上是) 物理层、数据链路层、网络层、传输层、应用层。
+此时如果需要回复网络包：
 
 
-所以如果一个 HTTP 协议的包跑在网络上，它一定是完整的。
-无论这个包经过哪些设备，它都是完整的。所谓的二层设备、三层设备，都是这些设备上跑的程序不同而已。一个 HTTP 协议的包经过一个二层设备，二层设备收进去的是整个网络包。这里面 HTTP、TCP、 IP、 MAC 都有。二层设备就是只把 MAC 头摘下来，看看到底是丢弃、转发，还是自己留着。三层设备就是把 MAC 头摘下来之</p> 
+记录目标端口号
+记录目标IP地址
+记录目标MAC地址
+然后把Buffer里的完整内容发送出去
+
+
+所以如果一个 HTT</p> 
 							</div> 
 						</a> 
 <!-- 自定义Post颜色 -->
@@ -212,7 +217,7 @@ IOS要更新隐私协议，未来还不知道怎么样。
 						<div class="item-slant"></div>
 		 				<div class="item-label">
 	  						<div class="item-title">
-	  							<a href="16165825844331.html">网络协议</a>
+	  							<a href="16165825844331.html">一：网络程序是如何工作的？</a>
 	  						</div>
 		   					<div class="item-meta clearfix"> 
 <!-- 自定义Icon -->
@@ -223,7 +228,153 @@ IOS要更新隐私协议，未来还不知道怎么样。
 
 		   						<div class="item-meta-cat">
 	  							
-			    			<a class='category' href='%E7%BD%91%E7%BB%9C.html'>网络</a>
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+						<div class="item-thumb bg-deepgrey" style="background-image:url(media/16165825844331/network.jpeg);">
+						
+						</div> 
+						<a href="16166747475525.html"> 
+							<div class="item-desc"> 
+								<p>动态主机配置协议 DHCP
+
+每一台新设备接入网络时可以通过DHCP协议向DHCP Server申请租赁一个临时的IP地址，当设备离线后这个IP地址就会被DHCP Server收回用于租赁给其他设备。
+
+BOOTP引导程序协议
+
+BOOTP（Bootstrap Protocol，引导程序协议）是一种引导协议，基于IP/UDP协议，也称自举协议，是DHCP协议的前身。BOOTP用于无盘工作站的局域网中，可以让无盘工作站从一个中心服务器上获得IP地址。通过BOOTP协议可以为局域网中的无盘工作站分配动态IP地址，这样就不需要管理员去为每个用户去设置静态IP地址。
+
+DHCP工作方式
+
+当一台新设备</p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166747475525.html">二：DHCP 和 PXE</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								 
+								<div class="item-meta-ico bg-ico-book" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+								</div>
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+						<div class="item-thumb bg-deepgrey" style="background-image:url(media/16165825844331/network.jpeg);">
+						
+						</div> 
+						<a href="16166745434574.html"> 
+							<div class="item-desc"> 
+								<p>物理层
+
+物理层是网络架构中最低的一层，为传输数据所需要的物理链路创建、维持、拆除，而提供具有机械的，电子的，功能的和规范的特性。简单的说，物理层确保原始的数据可在各种物理媒体上传输。局域网与广域网皆属第1、2层。 
+
+物理层可以简单的理解为网线，当两台电脑要互相连接时可以用一根网线交叉接线 设置IP地址的方式直插联机，三四台机器也可以使用Hub集线器来进行连接。
+上面的方式都没有使用到路由器或交换机，它们只在物理层工作，会把收到的每一个字节都复制到其他端口上，这是第一层物理层的联通方案。
+
+链路层
+
+
+链路层解决的是网络包发送相关的问题，包括：收发机器，收发顺序，可能产生的异常。
+
+
+Hub</p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166745434574.html">三：物理层 和 链路层</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								 
+								<div class="item-meta-ico bg-ico-book" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+								</div>
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
+								
+		   						</div> 
+		   					</div> 
+		   					
+		   				</div> 
+   					</div>
+ 				</div>
+ 			
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+ <!-- 自定post背景图 -->
+					 
+						<div class="item-thumb bg-deepgrey" style="background-image:url(media/16165825844331/network.jpeg);">
+						
+						</div> 
+						<a href="16166768962384.html"> 
+							<div class="item-desc"> 
+								<p>交换机
+
+如果在办公大楼里将会有成百上千个网口，此时一台交换机已经不够用了，就需要多台交换机，交换机之间连接起来就形成了一个稍微复杂的拓扑结构。
+</p> 
+							</div> 
+						</a> 
+<!-- 自定义Post颜色 -->
+				
+						<div class="item-slant reverse-slant bg-deepgrey"></div>
+						
+
+						<div class="item-slant"></div>
+		 				<div class="item-label">
+	  						<div class="item-title">
+	  							<a href="16166768962384.html">四：交换机 与 VLAN</a>
+	  						</div>
+		   					<div class="item-meta clearfix"> 
+<!-- 自定义Icon -->
+								 
+								<div class="item-meta-ico bg-ico-book" style="background: url(asset/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+								</div>
+								
+
+		   						<div class="item-meta-cat">
+	  							
+			    			<a class='category' href='%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html'>网络协议</a>
 								
 		   						</div> 
 		   					</div> 
@@ -273,7 +424,7 @@ IOS要更新隐私协议，未来还不知道怎么样。
              
             
             <li>
-            <a href="%E7%BD%91%E7%BB%9C.html">网络&nbsp;(1)</a>
+            <a href="%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html">网络协议&nbsp;(4)</a>
             <p>
             
             </p>
@@ -309,8 +460,22 @@ IOS要更新隐私协议，未来还不知道怎么样。
           
           
          <li>
-           <a href="16165825844331.html">网络协议</a><br>
+           <a href="16165825844331.html">一：网络程序是如何工作的？</a><br>
          </li>
+          
+          
+          
+         <li>
+           <a href="16166747475525.html">二：DHCP 和 PXE</a><br>
+         </li>
+          
+          
+          
+         <li>
+           <a href="16166745434574.html">三：物理层 和 链路层</a><br>
+         </li>
+          
+          
           
            
 
