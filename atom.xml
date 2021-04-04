@@ -4,7 +4,7 @@
   <title><![CDATA[热爱我的热爱]]></title>
   <link href="https://pcxblog.top/atom.xml" rel="self"/>
   <link href="https://pcxblog.top/"/>
-  <updated>2021-04-04T21:49:14+08:00</updated>
+  <updated>2021-04-04T21:59:03+08:00</updated>
   <id>https://pcxblog.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -1017,6 +1017,7 @@ DELETE，这个顾名思义就是用来删除资源的。</li>
     <updated>2021-04-04T21:58:42+08:00</updated>
     <id>https://pcxblog.top/16175447224237.html</id>
     <content type="html"><![CDATA[
+<p>PS:各大CA机构的公钥是默认安装在操作系统里的。所以不要安装来路不明的操作系统，否则相当于裸奔</p>
 
 ]]></content>
   </entry>
