@@ -10,7 +10,7 @@
 
     <title>
       
-    十：套接字 - 热爱我的热爱
+    十：Socket套接字 - 热爱我的热爱
     
     </title>
 
@@ -88,7 +88,7 @@
 		<div class="post-header">
 			<!-- title -->
 			<div class="post-header">
-				<h1 class="post-title itemprop="name headline">十：套接字</h1>	
+				<h1 class="post-title itemprop="name headline">十：Socket套接字</h1>	
 				<div class="post-data">
 					<time datetime="2021-03-26T01:42:58+08:00" pubdate data-updated="true">2021/03/26</time>
 				</div>
@@ -102,7 +102,45 @@
 		</p>
 	<!-- 正文 -->
 		<p>
-		
+		<p>在网络层，Socket 函数需要指定到底是 IPv4 还是 IPv6，分别对应设置为 AF_INET 和 AF_INET6。另外，还要指定到底是 TCP 还是 UDP。<br/>
+TCP协议时基于数据流的，所以设置为SOCK_STREAM，而UDP是基于数据抱的，所以设置为SOCK_DGRAM。</p>
+
+<h3 id="toc_0">基于TCP协议的Socket程序函数调用过程</h3>
+
+<p>TCP服务端监听端口后客户端就可以发起连接了，在内核中，为每个 Socket 维护两个队列。<br/>
+一个是已经建立了连接的队列，这时候连接三次握手已经完毕，处于 established 状态。<br/>
+一个是还没有完全建立连接的队列，这个时候三次握手还没完成，处于 syn_rcvd 的状态。</p>
+
+<p>接下来，服务端调用 accept 函数，拿出一个已经完成的连接进行处理。如果还没有完成，就要等着。</p>
+
+<p>在服务端等待的时候，客户端可以通过 connect 函数发起连接。先在参数中指明要连接的 IP 地址和端口号，然后开始发起三次握手。内核会给客户端分配一个临时的端口。一旦握手成功，服务端的 accept 就会返回另一个 Socket。</p>
+
+<p>监听的 Socket 和真正用来传数据的 Socket 是两个，一个叫作监听 Socket，一个叫作已连接 Socket。</p>
+
+<p>连接建立成功之后，双方开始通过 read 和 write 函数来读写数据，就像往一个文件流里面写东西一样。</p>
+
+<p><img src="media/16166941789471/16175419219872.jpg" alt="" style="width:591px;"/></p>
+
+<p>说 TCP 的 Socket 就是一个文件流，是非常准确的。因为，Socket 在 Linux 中就是以文件的形式存在的。除此之外，还存在文件描述符。写入和读出，也是通过文件描述符。</p>
+
+<h3 id="toc_1">基于 UDP 协议的 Socket 程序函数调用过程</h3>
+
+<p>UDP 是没有连接的，所以不需要三次握手，也就不需要调用 listen 和 connect，但是，UDP 的交互仍然需要 IP 和端口号，因而也需要 bind。<br/>
+UDP 是没有维护连接状态的，因而不需要每对连接建立一组 Socket，而是只要有一个 Socket，就能够和多个客户端通信。<br/>
+也正是因为没有连接状态，每次通信的时候，都调用 sendto 和 recvfrom，都可以传入 IP 地址和端口。<br/>
+<img src="media/16166941789471/16175420567777.jpg" alt="" style="width:512px;"/></p>
+
+<h3 id="toc_2">如何处理更多连接</h3>
+
+<ul>
+<li>多进程</li>
+<li>多线程</li>
+<li>IO 多路复用，一个线程维护多个 Socket。 用 select 函数来监听文件描述符集合是否有变化</li>
+<li>IO 多路复用，用 epoll 注册CallBack函数的方式，通过 epoll 来监听是否这些 Socket 都有事件发生。</li>
+</ul>
+
+<p>epoll 这种通知方式使得监听的 Socket 数据增加的时候，效率不会大幅度降低，能够同时监听的 Socket 的数目也非常的多了。上限就为系统定义的、进程打开的最大文件描述符个数。因而，epoll 被称为解决 C10K 问题的利器。</p>
+
 		</p>
 		<!-- 侧边导航条 -->
 		<div id="directory-content" class="directory-content">
