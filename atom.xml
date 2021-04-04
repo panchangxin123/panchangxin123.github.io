@@ -4,7 +4,7 @@
   <title><![CDATA[热爱我的热爱]]></title>
   <link href="https://pcxblog.top/atom.xml" rel="self"/>
   <link href="https://pcxblog.top/"/>
-  <updated>2021-04-04T20:56:19+08:00</updated>
+  <updated>2021-04-04T21:49:14+08:00</updated>
   <id>https://pcxblog.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -1003,6 +1003,20 @@ DELETE，这个顾名思义就是用来删除资源的。</li>
 <li>Content-Type 是指正文的格式。例如，我们进行 POST 的请求，如果正文是 JSON，那么我们就应该将这个值设置为 JSON。</li>
 <li>。。。。。</li>
 </ul>
+
+<h3 id="toc_4">HTTP 返回的构建</h3>
+
+<p><img src="media/16175409475699/16175443229939.jpg" alt="" style="width:1605px;"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HTTPS协议]]></title>
+    <link href="https://pcxblog.top/16175447224237.html"/>
+    <updated>2021-04-04T21:58:42+08:00</updated>
+    <id>https://pcxblog.top/16175447224237.html</id>
+    <content type="html"><![CDATA[
 
 ]]></content>
   </entry>
