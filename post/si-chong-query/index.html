@@ -1,0 +1,491 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>四种Query | 热爱我的热爱</title>
+<meta name="description" content="人皆有梦，多寡不同。" />
+<link rel="shortcut icon" href="https://panchangxin123.github.io/favicon.ico">
+<link rel="stylesheet" href="https://panchangxin123.github.io/styles/main.css">
+
+<script src="https://panchangxin123.github.io/media/js/jquery.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/aos.js"></script>
+<script src="https://panchangxin123.github.io/media/js/pace.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/view-image.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+SystemAPI.Query
+IJobEntity
+IJobChunk
+IJobFor（自定义Job）
+
+
+一：SystemAPI.Query
+foreach(var xxx in SystemAPI.Query&lt;T&gt;())..." />
+    <meta name="keywords" content="DOTS,ECS" />
+    <script src="https://panchangxin123.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://panchangxin123.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://panchangxin123.github.io"><img src="\media\images\custom-headerLogo.jpg" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://panchangxin123.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1670375959979" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://panchangxin123.github.io/post-images/si-chong-query.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2022-12-04"><i class="fa fa-calendar"></i><span class="lately">3 天前</span></time>
+              
+              <a href="https://panchangxin123.github.io/post/si-chong-query/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/post/si-chong-query/"> </span>
+              </a>
+              <span id="/post/si-chong-query/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-0 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-1 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">四种Query</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <ul>
+<li>SystemAPI.Query</li>
+<li>IJobEntity</li>
+<li>IJobChunk</li>
+<li>IJobFor（自定义Job）</li>
+</ul>
+<!-- more -->
+<h1 id="一systemapiquery">一：SystemAPI.Query</h1>
+<pre><code class="language-csharp">foreach(var xxx in SystemAPI.Query&lt;T&gt;())
+{
+}
+</code></pre>
+<p>可以在<strong>Temp</strong>文件夹中找到自动生成后的代码，可见<strong>SystemAPI.Query<T>()<strong>被替换成</strong>Queries.T.Query(xxxxx)</strong></p>
+<p><strong>缺点：所有运算都是在主线程中进行。</strong></p>
+<h1 id="二ijobentity-简化的ijobchunk">二：IJobEntity （简化的IJobChunk）</h1>
+<pre><code class="language-csharp">public partial struct RotationSpeedSystem : ISystem
+{
+		.......
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
+    {
+        var job = new RotationSpeedJob { deltaTime = SystemAPI.Time.DeltaTime };
+        job.ScheduleParallel();
+    }
+}
+partial struct RotationSpeedJob : IJobEntity
+{
+    public float deltaTime;
+		//正常情况IJobEntity的Execute不会有chunkIndex参数，但是可以通过如下添加[ChunkIndexinQuery]属性 代码生成后就会传入chunkIndex
+    void Execute([ChunkIndexinQuery]int chunkIndex,ref LocalToWorldTransform transform, in RotationSpeed speed)
+    {
+        transform.Value = transform.Value.RotateY(speed.RadiansPerSecond * deltaTime);
+    }
+}
+</code></pre>
+<h1 id="三ijobchunk">三：IJobChunk</h1>
+<pre><code class="language-csharp">[BurstCompile]
+struct RotationSpeedJob : IJobChunk
+{
+    public float DeltaTime;
+    public ComponentTypeHandle&lt;LocalToWorldTransform&gt; TransformTypeHandle;
+    [ReadOnly] public ComponentTypeHandle&lt;RotationSpeed&gt; RotationSpeedTypeHandle;
+
+    public void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask,in v128 chunkEnabledMask)
+    {
+        Assert.IsFalse(useEnabledMask);        
+				var chunkTransforms = chunk.GetNativeArray(TransformTypeHandle);
+        var chunkRotationSpeeds = chunk.GetNativeArray(RotationSpeedTypeHandle);
+        for (int i = 0, chunkEntityCount = chunk.Count; i &lt; chunkEntityCount; i++)
+        {
+            var rotationSpeed = chunkRotationSpeeds[i];
+            chunkTransforms[i] = new LocalToWorldTransform
+            {
+                Value = chunkTransforms[i].Value.RotateY(rotationSpeed.RadiansPerSecond * DeltaTime)
+            };
+        }
+    }
+}
+</code></pre>
+<h1 id="四ijobfor-自定义job">四：IJobFor （自定义Job）</h1>
+<pre><code class="language-csharp">[RequireMatchingQueriesForUpdate]
+[UpdateInGroup(typeof(MainThreadGroup))]
+[BurstCompile]
+public partial struct RotationSpeedSystem : ISystem
+{
+    EntityQuery m_SpinningCubes;
+    //ComponentTypeHandle 用于标识Chunk中的哪个Component类型的数组
+    ComponentTypeHandle&lt;LocalToWorldTransform&gt; m_TransformTypeHandle;
+    ComponentTypeHandle&lt;RotationSpeed&gt; m_RotationSpeedTypeHandle;
+    [BurstCompile] 
+    public void OnCreate(ref SystemState state)
+    {
+        var queryBuilder = new EntityQueryBuilder(Allocator.Temp).WithAll&lt;RotationSpeed, LocalToWorldTransform&gt;();
+        m_SpinningCubes = state.GetEntityQuery(queryBuilder);
+        m_TransformTypeHandle = state.GetComponentTypeHandle&lt;LocalToWorldTransform&gt;();
+        m_RotationSpeedTypeHandle = state.GetComponentTypeHandle&lt;RotationSpeed&gt;(true);//isReadOnly = true
+    }
+    [BurstCompile]
+    public void OnDestroy(ref SystemState state) { }
+    
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
+    {
+        var deltaTime = SystemAPI.Time.DeltaTime;
+        //获取到Archetype下的所有Chunk的数组
+        var chunks = m_SpinningCubes.ToArchetypeChunkArray(Allocator.TempJob);
+        m_TransformTypeHandle.Update(ref state);
+        m_RotationSpeedTypeHandle.Update(ref state);
+        //创建Job
+        var job = new RotationSpeedIJobFor
+        {
+            Chunks = chunks,
+            TransformTypeHandle = m_TransformTypeHandle,
+            RotationSpeedTypeHandle = m_RotationSpeedTypeHandle,
+            DeltaTime = deltaTime,
+        };
+        //规划执行Job
+        state.Dependency = job.ScheduleParallel(chunks.Length,64,new JobHandle());
+    }
+
+    [BurstCompile]
+    struct RotationSpeedIJobFor : IJobFor
+    {
+        public NativeArray&lt;ArchetypeChunk&gt; Chunks;
+        public ComponentTypeHandle&lt;LocalToWorldTransform&gt; TransformTypeHandle;
+        [ReadOnly]public ComponentTypeHandle&lt;RotationSpeed&gt; RotationSpeedTypeHandle;
+        public float DeltaTime;
+        public void Execute(int index)
+        {
+            //获取Chunk
+            var chunk = Chunks[index];
+            //分辨获取Chunk中所需的Component数组
+            var chunkTransforms = chunk.GetNativeArray(TransformTypeHandle);
+            var chunkRotationSpeeds = chunk.GetNativeArray(RotationSpeedTypeHandle);
+            // Do something
+            var instanceCount = chunk.Count;
+            for (int i = 0; i &lt; instanceCount; i++)
+            {
+                var transform = chunkTransforms[i];
+                var rotationSpeed = chunkRotationSpeeds[i];
+                chunkTransforms[i] = new LocalToWorldTransform
+                {
+                    Value = transform.Value.RotateY(rotationSpeed.RadiansPerSecond * DeltaTime)
+                };
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="readonly">ReadOnly</h2>
+<p>ReadOnly是Dots重要概念，所以Entity和Component都有Version字段。</p>
+<p>当像上面IJobFor例子中ComponentTypeHandle被标记为ReadOnly时，则不会修改对应Component的Version，否则Version就会递增。</p>
+<p>当Version发生改变时就会影响**ArchetypeChunck.DidChange()**的结果。</p>
+<p>而在<strong>IJobEntity</strong>中，<strong>Execute函数</strong>的参数使用<strong>ref</strong>则代表读写，<strong>in</strong>则代表只读<strong>ReadOnly。</strong></p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/job-dependencies-yi-lai.jpg');"></div>
+                 <a href="https://panchangxin123.github.io/post/job-dependencies-yi-lai/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">Job Dependencies 依赖</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/ijobentity-ijobchunk.png');"></div>
+                 <a href="https://panchangxin123.github.io/post/ijobentity-ijobchunk/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">IJobEntity , IJobChunk</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/an-zhuo-adb-diao-shi.webp');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/">安卓ADB调试</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/system-shi-xu-yu-updategroup.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/">System 时序与 UpdateGroup</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/icleanupcomponentdata.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-04">2022-12-04</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/">ICleanupComponentData</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://panchangxin123.github.io/tag/ZHtPZr59m/" class="ctag ctag-0 ctag-ZHtPZr59m" aria-label="">Android</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-1 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-2 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/kArySTdSH/" class="ctag ctag-3 ctag-kArySTdSH" aria-label="">JobSystem</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://panchangxin123.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">热爱我的热爱</a></h4>
+                    <p class="founder">人皆有梦，多寡不同。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://panchangxin123.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          已备案：京ICP备19016292号-1
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: '5Wrqx8knAuF4Q2BOMF5qKAm9-gzGzoHsz' ,
+        appKey: 'ipIA9uUSjBZowuPcEIKwmk09',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true//true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://panchangxin123.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

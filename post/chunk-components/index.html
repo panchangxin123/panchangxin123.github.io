@@ -1,0 +1,416 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chunk Components | 热爱我的热爱</title>
+<meta name="description" content="人皆有梦，多寡不同。" />
+<link rel="shortcut icon" href="https://panchangxin123.github.io/favicon.ico">
+<link rel="stylesheet" href="https://panchangxin123.github.io/styles/main.css">
+
+<script src="https://panchangxin123.github.io/media/js/jquery.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/aos.js"></script>
+<script src="https://panchangxin123.github.io/media/js/pace.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/view-image.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="块组件和普通的共享组件类似，但也有所不同。
+块组件主要充当优化作用，例如计算存储Chunk中所有Entity的边界框。
+
+块组件与共享组件类似，但有一下几点不同：
+
+块组件属于块，而非实体。
+块组件不会引起结构更改
+与共享组件不同，不同块组..." />
+    <meta name="keywords" content="DOTS,ECS" />
+    <script src="https://panchangxin123.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://panchangxin123.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://panchangxin123.github.io"><img src="\media\images\custom-headerLogo.jpg" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://panchangxin123.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1670375959979" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://panchangxin123.github.io/post-images/chunk-components.webp');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2022-12-04"><i class="fa fa-calendar"></i><span class="lately">3 天前</span></time>
+              
+              <a href="https://panchangxin123.github.io/post/chunk-components/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/post/chunk-components/"> </span>
+              </a>
+              <span id="/post/chunk-components/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-0 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-1 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Chunk Components</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>块组件和普通的共享组件类似，但也有所不同。<br>
+块组件主要充当优化作用，例如计算存储Chunk中所有Entity的边界框。</p>
+<!-- more -->
+<p>块组件与共享组件类似，但有一下几点不同：</p>
+<ul>
+<li>块组件属于块，而非实体。</li>
+<li>块组件不会引起<strong>结构更改</strong></li>
+<li>与共享组件不同，不同块组件即使值相同也不会删除重复值，而已每一份都是一份单独的副本。</li>
+<li>块组件始终是非托管的：不能创建托管块组件</li>
+<li>实体的原型更改或更改共享组件后导致的<strong>结构更改</strong>，Unity会把实体移动到新的Chunk中，但是这不会影响到原Chunk和新Chunk 组件的值。</li>
+</ul>
+<h2 id="定义">定义</h2>
+<p>与普通组件没有任何不同，只是把它添加到Entity上还是Chunk上的区别。</p>
+<pre><code class="language-csharp">public struct ExampleChunkComponent : IComponentData
+{
+    public int Value;
+}
+</code></pre>
+<h2 id="使用">使用</h2>
+<p>添加、删除、设置 <strong>块组件</strong> 用到的是一套全新API，与Entity不同。</p>
+<pre><code class="language-csharp">private void ChunkComponentExample(Entity e)
+{
+    // 将ChunkComponent添加到Entity所在的Chunk上。
+    EntityManager.AddChunkComponent&lt;ExampleChunkComp&gt;(e);
+
+    // 获取包含**ExampleComponent普通组件**和**ExampleChunkComp块组件**的ChunkQuery
+    // 为了区分普通组件和块组件，必须使用**ComponentType.ChunkComponent&lt;T&gt;**来表示块组件。
+    EntityQuery query = GetEntityQuery(typeof(ExampleComponent), ComponentType.ChunkComponent&lt;ExampleChunkComp&gt;());
+    NativeArray&lt;ArchetypeChunk&gt; chunks = query.ToArchetypeChunkArray(Allocator.Temp);
+
+    // 设置第一个Chunk的组件值
+    EntityManager.SetChunkComponentData&lt;ExampleChunkComp&gt;(chunks[0], new ExampleChunkComp { Value = 6 });
+
+    // 获取第一个Chunk的组件值
+    ExampleChunkComp exampleChunkComp = EntityManager.GetChunkComponentData&lt;ExampleChunkComp&gt;(chunks[0]);
+    Debug.Log(exampleChunkComp.Value)    // 6
+}
+</code></pre>
+<blockquote>
+<p><strong>如果只想从块组件中读而非写，可以使用ComponentType.ChunkComponentReadOnly<T>来表示为只读。在Job中可以避免不必要的调度约束，避免同步点的产生。<br>
+尽管块组件属于块本身，但在实体上添加或删除块组件会更改其原型并导致结构更改,导致Entity被移动到其他Chunk中。</strong></p>
+</blockquote>
+<p>其他API：</p>
+<ul>
+<li><strong>EntityManager.AddComponentData 给Entity添加块组件<br>
+（不知是否为旧API 和 EntityManager.AddChunkComponent是否一样</strong></li>
+</ul>
+<h2 id="通过entity来获取-设置块组件">通过Entity来获取、设置块组件</h2>
+<pre><code class="language-csharp">private void ChunkComponentExample(Entity e)
+{
+    // Sets the ExampleChunkComp value of the entity's chunk.
+    EntityManager.SetChunkComponentData&lt;MyChunkComp&gt;(e, new MyChunkComp { Value = 6 });
+
+    // Sets the ExampleChunkComp value of the entity's chunk.
+    MyChunkComp myChunkComp = EntityManager.GetChunkComponentData&lt;MyChunkComp&gt;(e);
+    Debug.Log(myChunkComp.Value)    // 6
+}
+</code></pre>
+<h2 id="在job中使用">在Job中使用</h2>
+<p>因为Job中不能使用EntityManager，所以访问Chunk组件需要ComponentTypeHandle</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/ijobentity-ijobchunk.png');"></div>
+                 <a href="https://panchangxin123.github.io/post/ijobentity-ijobchunk/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">IJobEntity , IJobChunk</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/aspects-dop-zhong-de-chou-xiang.webp');"></div>
+                 <a href="https://panchangxin123.github.io/post/aspects-dop-zhong-de-chou-xiang/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">Aspects : DOP中的抽象</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/an-zhuo-adb-diao-shi.webp');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/">安卓ADB调试</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/system-shi-xu-yu-updategroup.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/">System 时序与 UpdateGroup</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/icleanupcomponentdata.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-04">2022-12-04</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/">ICleanupComponentData</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://panchangxin123.github.io/tag/ZHtPZr59m/" class="ctag ctag-0 ctag-ZHtPZr59m" aria-label="">Android</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-1 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-2 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/kArySTdSH/" class="ctag ctag-3 ctag-kArySTdSH" aria-label="">JobSystem</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://panchangxin123.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">热爱我的热爱</a></h4>
+                    <p class="founder">人皆有梦，多寡不同。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://panchangxin123.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          已备案：京ICP备19016292号-1
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: '5Wrqx8knAuF4Q2BOMF5qKAm9-gzGzoHsz' ,
+        appKey: 'ipIA9uUSjBZowuPcEIKwmk09',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true//true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://panchangxin123.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

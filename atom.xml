@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://panchangxin123.github.io</id>
+    <title>热爱我的热爱</title>
+    <updated>2022-12-07T01:19:21.897Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://panchangxin123.github.io"/>
+    <link rel="self" href="https://panchangxin123.github.io/atom.xml"/>
+    <subtitle>人皆有梦，多寡不同。</subtitle>
+    <logo>https://panchangxin123.github.io/images/avatar.png</logo>
+    <icon>https://panchangxin123.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, 热爱我的热爱</rights>
+    <entry>
+        <title type="html"><![CDATA[安卓ADB调试]]></title>
+        <id>https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/</id>
+        <link href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/">
+        </link>
+        <updated>2022-12-07T01:04:07.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="查看手机unitylog">查看手机UnityLog</h2>
+<ol>
+<li>adb devices -l 查看确保手机连接</li>
+<li>adb logcat -v time &gt; D:\adb\logcat.log 把手机log输出到指定目录文件中，如果不带目录则输出到console中。</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="查看手机unitylog">查看手机UnityLog</h2>
+<ol>
+<li>adb devices -l 查看确保手机连接</li>
+<li>adb logcat -v time &gt; D:\adb\logcat.log 把手机log输出到指定目录文件中，如果不带目录则输出到console中。</li>
+</ol>
+<!-- more -->
+<h2 id="基本指令">基本指令</h2>
+<ul>
+<li>adb version ：显示 adb 版本</li>
+<li>adb help ：帮助信息，查看 adb 所支持的所有命令</li>
+<li>adb start-server：启动 adb 服务</li>
+<li>adb kill-server：关闭 adb 服务</li>
+<li>adb devices：用来查看当前连接的设备，已连接的设备会显示出来</li>
+<li>adb connect 设备号：用来连接设备</li>
+</ul>
+<h2 id="apk指令">apk指令</h2>
+<ul>
+<li>adb shell pm list packages：显示所有包名</li>
+<li>adb shell pm list packages –s：显示系统应用包名</li>
+<li>adb shell pm list packages -3：显示第三方应用包名</li>
+<li>adb install &lt;apk 文件路径 &gt; ：将本地 apk 软件安装到设备上</li>
+<li>adb uninstall &lt;apk 包名 &gt;：将设备上的 apk 卸载</li>
+</ul>
+<h2 id="文件指令">文件指令</h2>
+<ul>
+<li>adb push &lt; 本地路径 &gt; &lt; 手机端路径 &gt;：把本地的文件或文件夹复制到设备（手机）</li>
+<li>adb pull &lt; 手机端文件 &gt; &lt; 本地路径 &gt;：把设备（手机）的文件或文件夹复制到本地</li>
+</ul>
+<h2 id="日志指令">日志指令</h2>
+<ul>
+<li>adb logcat -c</li>
+<li>adb logcat [选项] [过滤项]</li>
+<li>adb logcat -v time &gt; D:\adb\logcat.log ：输出实时日志并保存在本地文件 （-v time的意思是按照时间记录日志）
+<ul>
+<li>&quot;-s&quot;选项 : 只显示指定标签的日志; ------&gt;adb logcat -s SWVDEC 显示SWVDEC标签的日志</li>
+<li>“v&quot;选项 : 设置日志的输出格式;-----&gt;adb logcat -v threadtime 查看日志输出时间和线程信息</li>
+<li>&quot;-c&quot;选项 : 清空所有的日志缓存信息;----&gt;adb logcat -c</li>
+<li>&quot;-d&quot;选项 : 将缓存的日志输出到屏幕上, 并且不会阻塞;-------&gt;adb logcat -d</li>
+<li>&quot;-t&quot;选项 : 输出最近的几行日志, 输出完退出, 不阻塞;------&gt;adb logcat -t 5 输出日志缓冲区的最近5行</li>
+<li>&quot;-g&quot;选项 : 查看日志缓冲区信息; ------&gt;adb logcat -g</li>
+<li>&quot;-B&quot;选项 : 以二进制形式输出日志; ----&gt; adb logcat -B</li>
+</ul>
+</li>
+</ul>
+<h2 id="系统指令">系统指令</h2>
+<ul>
+<li>adb shell getprop ro.product.model ：获取设备型号</li>
+<li>adb shell getprop ro.build.version.release：获取设备 Android 系统版本</li>
+<li>adb get-serialno：获取设备的序列号（设备号）</li>
+<li>adb shell wm size：获取设备屏幕分辨率</li>
+<li>adb shell screencap -p /sdcard/mms.png：屏幕截图</li>
+<li>adb pull /sdcard/mms.png D:\app：将截图导出到本地</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[System 时序与 UpdateGroup]]></title>
+        <id>https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/</id>
+        <link href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/">
+        </link>
+        <updated>2022-12-06T16:03:47.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="system-update-group">System Update Group</h1>
+<p>SystemGroup是可以将System分组统一管理时序的工具。</p>
+<figure data-type="image" tabindex="1"><img src="https://panchangxin123.github.io/post-images/1670342694945.png" alt="" loading="lazy"></figure>
+<p>系统自带的UpdateGroup：</p>
+<ul>
+<li>Initialization System Group</li>
+<li>Simulation System Group</li>
+<li>Presentation System Group</li>
+<li>以及一些子Group</li>
+</ul>
+<p>顾名思义 分别对应着Loop初始化阶段、Loop结束阶段和PreLate阶段。</p>
+<p>SystemGroup像层级结构一样可以嵌套：</p>
+<figure data-type="image" tabindex="2"><img src="https://panchangxin123.github.io/post-images/1670342705226.png" alt="" loading="lazy"></figure>
+<h2 id="自定义systemgroup">自定义SystemGroup</h2>
+<p>继承自<code>ComponentSystemGroup</code> 可以实现自己的SystemGroup。如下：</p>
+<pre><code class="language-jsx">//根据场景名字判断是否运行的SystemGroup
+public abstract class SceneSelectorGroup : ComponentSystemGroup
+{
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        
+        var scene = SceneManager.GetActiveScene();
+        Enabled = scene.name == SceneName;
+        
+        if (Enabled) 
+            return;
+        
+        var subScene = Object.FindObjectOfType&lt;SubScene&gt;();
+        if (subScene != null)
+        {
+            Enabled = SceneName == subScene.gameObject.scene.name;
+        }
+        else
+        {
+            Enabled = false;
+        }
+    }
+
+    protected abstract string SceneName { get; }
+}
+</code></pre>
+<p>自定义的SystemGroup还可以使用<code>UpdateInGroup</code> <code>UpdateBefore</code> <code>UpdateAfter</code> 来定义更新时机，同时这三个<strong>属性</strong>也适用于System。例如：</p>
+<pre><code class="language-jsx">[UpdateInGroup(typeof(TestSystemGroup))]//可以将此Group嵌套进另一个Group中，成为子Group
+[UpdateAfter(typeof(TestInputSystem))]//也可以自定义在某个System之后更新
+[UpdateBefore(typeof(TestSystemGroup))]//还可以自定义在某个Group之前更新
+//同时这三个属性也适用于System
+public class TestAABBAgentGroup : SceneSelectorGroup
+{
+    protected override string SceneName =&gt; &quot;TestAABBAgent&quot;;
+}
+</code></pre>
+<h1 id="system-时序">System 时序</h1>
+<h2 id="属性">属性</h2>
+<ul>
+<li>
+<p><code>UpdateInGroup</code></p>
+</li>
+<li>
+<p><code>UpdateBefore</code></p>
+</li>
+<li>
+<p><code>UpdateAfter</code></p>
+</li>
+<li>
+<p><code>CreateAfter</code></p>
+</li>
+<li>
+<p><code>CreateBefore</code></p>
+</li>
+<li>
+<p><code>DisableAutoCreation</code> 禁用System自动创建和更新<br>
+被标记的System需要手动调用API进行创建和更新。</p>
+<pre><code class="language-csharp">SystemHandle testInputSystem = state.World.GetOrCreateSystem&lt;TestInputSystem&gt;();
+testInputSystem.Update(state.World.Unmanaged);
+</code></pre>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ICleanupComponentData]]></title>
+        <id>https://panchangxin123.github.io/post/icleanupcomponentdata/</id>
+        <link href="https://panchangxin123.github.io/post/icleanupcomponentdata/">
+        </link>
+        <updated>2022-12-04T13:02:45.000Z</updated>
+        <summary type="html"><![CDATA[<p>当Entity拥有一个CleanupComponent时，当主动销毁Entity时 会删除其他非CleanupComponent的组件，而保留下全部的CleanupComponent，也不会真正销毁Entity。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>当Entity拥有一个CleanupComponent时，当主动销毁Entity时 会删除其他非CleanupComponent的组件，而保留下全部的CleanupComponent，也不会真正销毁Entity。</p>
+<!-- more -->
+<p>当一个Entity的所有Component都被删除时，这个Entity就会被销毁。<br>
+当Entity拥有一个CleanupComponent时，当主动销毁Entity时 会删除其他非CleanupComponent的组件，而保留下全部的CleanupComponent，也不会真正销毁Entity。<br>
+如果要删除CleanupComponent需要手动调用，当所有CleanupComponent也被删除时Entity才会被真正的销毁。</p>
+<pre><code class="language-csharp">// 创建一个Entity
+Entity e = EntityManger.CreateEntity(
+    typeof(Translation), typeof(Rotation), typeof(ExampleCleanup));
+
+// 删除Entity，本质上是删除Entity的所有Component。
+// 但是CleanupComponent不会被此API删除，所以Entity并没被销毁。
+EntityManager.DestroyEntity(e);
+
+// 给上面的Entity添加Translation组件，正常运行说明Entity的确没有被销毁。
+// 此时Entity还有2个组件：ExampleCleanup 和 Translation
+EntityManager.AddComponent&lt;Translation&gt;(e);
+
+// 手动移除Entity最后的两个组件，包括CleanupComponent
+EntityManager.DestroyEntity(e, new ComponentTypes(typeof(ExampleCleanup), typeof(Translation)));
+
+// 此时Entity已经不存在了，已经被正确销毁了。 entityExists = false
+bool entityExists = EntityManager.Exists(e);
+</code></pre>
+<p>创建一个清理组件：</p>
+<pre><code class="language-csharp">// 普通组件
+public struct ExampleCleanupComponent : ICleanupComponentData
+{
+
+}
+// 共享组件
+public struct ExampleSharedCleanupComponent : ICleanupSharedComponentData
+{
+
+}
+</code></pre>
+<p>用途：TODO…….</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Job Dependencies 依赖]]></title>
+        <id>https://panchangxin123.github.io/post/job-dependencies-yi-lai/</id>
+        <link href="https://panchangxin123.github.io/post/job-dependencies-yi-lai/">
+        </link>
+        <updated>2022-12-04T12:55:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>当2个或更多Job都需要访问同一个对象时，可能会同时对对象进行读写从而产生错误。<br>
+而当A线程执行完返回主线程 再启动B线程这种操作并不高效。<br>
+此时引入了JobDependencies 依赖概念，把一个Job的Handle赋值给另一个Job 让另一个Job等待之前Job完成，完成后自动执行自身。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>当2个或更多Job都需要访问同一个对象时，可能会同时对对象进行读写从而产生错误。<br>
+而当A线程执行完返回主线程 再启动B线程这种操作并不高效。<br>
+此时引入了JobDependencies 依赖概念，把一个Job的Handle赋值给另一个Job 让另一个Job等待之前Job完成，完成后自动执行自身。</p>
+<!-- more -->
+<p>例如：<br>
+目前一共3个Job 他们都访问了同一个对象， Job A,B,C;</p>
+<pre><code class="language-csharp">var jobAHandle = A.Schedule()
+
+var jobBHandle = B.Schedule(jobAHandle)
+
+var jobCHandle = C.Schedule(jobBHandle)
+</code></pre>
+<p>这样3个Job无需回到主线程启动另一个Job 即可实现A→B→C的有序调度</p>
+<p>也可以多个Job同时依赖1个Job，也可以 1个Job同时依赖多个Job。</p>
+<p>此时需要用到JobHandle合并功能：</p>
+<pre><code class="language-csharp">JobHandle comBined = JobHandle.CombineDependencies(AHandle,BHandle,...)
+</code></pre>
+<p>需要注意的是，必须保证整个依赖网是无环的！ 但好在编译器会检查报错。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[四种Query]]></title>
+        <id>https://panchangxin123.github.io/post/si-chong-query/</id>
+        <link href="https://panchangxin123.github.io/post/si-chong-query/">
+        </link>
+        <updated>2022-12-04T12:42:43.000Z</updated>
+        <summary type="html"><![CDATA[<ul>
+<li>SystemAPI.Query</li>
+<li>IJobEntity</li>
+<li>IJobChunk</li>
+<li>IJobFor（自定义Job）</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>SystemAPI.Query</li>
+<li>IJobEntity</li>
+<li>IJobChunk</li>
+<li>IJobFor（自定义Job）</li>
+</ul>
+<!-- more -->
+<h1 id="一systemapiquery">一：SystemAPI.Query</h1>
+<pre><code class="language-csharp">foreach(var xxx in SystemAPI.Query&lt;T&gt;())
+{
+}
+</code></pre>
+<p>可以在<strong>Temp</strong>文件夹中找到自动生成后的代码，可见<strong>SystemAPI.Query<T>()<strong>被替换成</strong>Queries.T.Query(xxxxx)</strong></p>
+<p><strong>缺点：所有运算都是在主线程中进行。</strong></p>
+<h1 id="二ijobentity-简化的ijobchunk">二：IJobEntity （简化的IJobChunk）</h1>
+<pre><code class="language-csharp">public partial struct RotationSpeedSystem : ISystem
+{
+		.......
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
+    {
+        var job = new RotationSpeedJob { deltaTime = SystemAPI.Time.DeltaTime };
+        job.ScheduleParallel();
+    }
+}
+partial struct RotationSpeedJob : IJobEntity
+{
+    public float deltaTime;
+		//正常情况IJobEntity的Execute不会有chunkIndex参数，但是可以通过如下添加[ChunkIndexinQuery]属性 代码生成后就会传入chunkIndex
+    void Execute([ChunkIndexinQuery]int chunkIndex,ref LocalToWorldTransform transform, in RotationSpeed speed)
+    {
+        transform.Value = transform.Value.RotateY(speed.RadiansPerSecond * deltaTime);
+    }
+}
+</code></pre>
+<h1 id="三ijobchunk">三：IJobChunk</h1>
+<pre><code class="language-csharp">[BurstCompile]
+struct RotationSpeedJob : IJobChunk
+{
+    public float DeltaTime;
+    public ComponentTypeHandle&lt;LocalToWorldTransform&gt; TransformTypeHandle;
+    [ReadOnly] public ComponentTypeHandle&lt;RotationSpeed&gt; RotationSpeedTypeHandle;
+
+    public void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask,in v128 chunkEnabledMask)
+    {
+        Assert.IsFalse(useEnabledMask);        
+				var chunkTransforms = chunk.GetNativeArray(TransformTypeHandle);
+        var chunkRotationSpeeds = chunk.GetNativeArray(RotationSpeedTypeHandle);
+        for (int i = 0, chunkEntityCount = chunk.Count; i &lt; chunkEntityCount; i++)
+        {
+            var rotationSpeed = chunkRotationSpeeds[i];
+            chunkTransforms[i] = new LocalToWorldTransform
+            {
+                Value = chunkTransforms[i].Value.RotateY(rotationSpeed.RadiansPerSecond * DeltaTime)
+            };
+        }
+    }
+}
+</code></pre>
+<h1 id="四ijobfor-自定义job">四：IJobFor （自定义Job）</h1>
+<pre><code class="language-csharp">[RequireMatchingQueriesForUpdate]
+[UpdateInGroup(typeof(MainThreadGroup))]
+[BurstCompile]
+public partial struct RotationSpeedSystem : ISystem
+{
+    EntityQuery m_SpinningCubes;
+    //ComponentTypeHandle 用于标识Chunk中的哪个Component类型的数组
+    ComponentTypeHandle&lt;LocalToWorldTransform&gt; m_TransformTypeHandle;
+    ComponentTypeHandle&lt;RotationSpeed&gt; m_RotationSpeedTypeHandle;
+    [BurstCompile] 
+    public void OnCreate(ref SystemState state)
+    {
+        var queryBuilder = new EntityQueryBuilder(Allocator.Temp).WithAll&lt;RotationSpeed, LocalToWorldTransform&gt;();
+        m_SpinningCubes = state.GetEntityQuery(queryBuilder);
+        m_TransformTypeHandle = state.GetComponentTypeHandle&lt;LocalToWorldTransform&gt;();
+        m_RotationSpeedTypeHandle = state.GetComponentTypeHandle&lt;RotationSpeed&gt;(true);//isReadOnly = true
+    }
+    [BurstCompile]
+    public void OnDestroy(ref SystemState state) { }
+    
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
+    {
+        var deltaTime = SystemAPI.Time.DeltaTime;
+        //获取到Archetype下的所有Chunk的数组
+        var chunks = m_SpinningCubes.ToArchetypeChunkArray(Allocator.TempJob);
+        m_TransformTypeHandle.Update(ref state);
+        m_RotationSpeedTypeHandle.Update(ref state);
+        //创建Job
+        var job = new RotationSpeedIJobFor
+        {
+            Chunks = chunks,
+            TransformTypeHandle = m_TransformTypeHandle,
+            RotationSpeedTypeHandle = m_RotationSpeedTypeHandle,
+            DeltaTime = deltaTime,
+        };
+        //规划执行Job
+        state.Dependency = job.ScheduleParallel(chunks.Length,64,new JobHandle());
+    }
+
+    [BurstCompile]
+    struct RotationSpeedIJobFor : IJobFor
+    {
+        public NativeArray&lt;ArchetypeChunk&gt; Chunks;
+        public ComponentTypeHandle&lt;LocalToWorldTransform&gt; TransformTypeHandle;
+        [ReadOnly]public ComponentTypeHandle&lt;RotationSpeed&gt; RotationSpeedTypeHandle;
+        public float DeltaTime;
+        public void Execute(int index)
+        {
+            //获取Chunk
+            var chunk = Chunks[index];
+            //分辨获取Chunk中所需的Component数组
+            var chunkTransforms = chunk.GetNativeArray(TransformTypeHandle);
+            var chunkRotationSpeeds = chunk.GetNativeArray(RotationSpeedTypeHandle);
+            // Do something
+            var instanceCount = chunk.Count;
+            for (int i = 0; i &lt; instanceCount; i++)
+            {
+                var transform = chunkTransforms[i];
+                var rotationSpeed = chunkRotationSpeeds[i];
+                chunkTransforms[i] = new LocalToWorldTransform
+                {
+                    Value = transform.Value.RotateY(rotationSpeed.RadiansPerSecond * DeltaTime)
+                };
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="readonly">ReadOnly</h2>
+<p>ReadOnly是Dots重要概念，所以Entity和Component都有Version字段。</p>
+<p>当像上面IJobFor例子中ComponentTypeHandle被标记为ReadOnly时，则不会修改对应Component的Version，否则Version就会递增。</p>
+<p>当Version发生改变时就会影响**ArchetypeChunck.DidChange()**的结果。</p>
+<p>而在<strong>IJobEntity</strong>中，<strong>Execute函数</strong>的参数使用<strong>ref</strong>则代表读写，<strong>in</strong>则代表只读<strong>ReadOnly。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IJobEntity , IJobChunk]]></title>
+        <id>https://panchangxin123.github.io/post/ijobentity-ijobchunk/</id>
+        <link href="https://panchangxin123.github.io/post/ijobentity-ijobchunk/">
+        </link>
+        <updated>2022-12-04T12:40:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>IJobyEntity只是用于简化IJobChunk写法的工具。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>IJobyEntity只是用于简化IJobChunk写法的工具。</p>
+<!-- more -->
+<h2 id="ijobentity">IJobEntity</h2>
+<pre><code class="language-csharp">partial struct RotationSpeedJob : IJobEntity
+{
+    public float deltaTime;
+    void Execute(ref LocalToWorldTransform transform, in RotationSpeed speed)
+    {
+        transform.Value = transform.Value.RotateY(speed.RadiansPerSecond * deltaTime);
+    }
+}
+</code></pre>
+<h2 id="ijobchunk">IJobChunk</h2>
+<pre><code class="language-csharp">[BurstCompile]
+struct RotationSpeedJob : IJobChunk
+{
+    public float DeltaTime;
+		//ComponentTypeHandle 是用于标记这个Component属于Chunk中的哪个Array？
+    public ComponentTypeHandle&lt;LocalToWorldTransform&gt; TransformTypeHandle;
+    [ReadOnly] public ComponentTypeHandle&lt;RotationSpeed&gt; RotationSpeedTypeHandle;
+
+    public void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask,in v128 chunkEnabledMask)
+    {
+        Assert.IsFalse(useEnabledMask);        
+				var chunkTransforms = chunk.GetNativeArray(TransformTypeHandle);
+        var chunkRotationSpeeds = chunk.GetNativeArray(RotationSpeedTypeHandle);
+        for (int i = 0, chunkEntityCount = chunk.Count; i &lt; chunkEntityCount; i++)
+        {
+            var rotationSpeed = chunkRotationSpeeds[i];
+            chunkTransforms[i] = new LocalToWorldTransform
+            {
+                Value = chunkTransforms[i].Value.RotateY(rotationSpeed.RadiansPerSecond * DeltaTime)
+            };
+        }
+    }
+}
+</code></pre>
+<p>由上可见IJobChunk没有partial 关键字，IJobEntityUnity会自动生成部分源码而IJobChunk并不会。</p>
+<p>在生成中的代码中可见，Unity会自动把IJobEntity转为IJobChunk，生成代码中的Execute方法的参数也一模一样。</p>
+<p>IJobyEntity只是用于简化IJobChunk写法的工具。但IJobChunk有更高自由度，例如可以在IJobChunk中检查ArchetypeChunck.DidChange是否更改从而决定是否跳过某段代码，或者以Chunk为单位操作ChunkComponent，进行一些粗粒度的筛选 例如BindBox。</p>
+<p><strong>IJobChunk虽然写法更加繁琐，但可以做一些更高级的事情。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Chunk Components]]></title>
+        <id>https://panchangxin123.github.io/post/chunk-components/</id>
+        <link href="https://panchangxin123.github.io/post/chunk-components/">
+        </link>
+        <updated>2022-12-04T12:37:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>块组件和普通的共享组件类似，但也有所不同。<br>
+块组件主要充当优化作用，例如计算存储Chunk中所有Entity的边界框。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>块组件和普通的共享组件类似，但也有所不同。<br>
+块组件主要充当优化作用，例如计算存储Chunk中所有Entity的边界框。</p>
+<!-- more -->
+<p>块组件与共享组件类似，但有一下几点不同：</p>
+<ul>
+<li>块组件属于块，而非实体。</li>
+<li>块组件不会引起<strong>结构更改</strong></li>
+<li>与共享组件不同，不同块组件即使值相同也不会删除重复值，而已每一份都是一份单独的副本。</li>
+<li>块组件始终是非托管的：不能创建托管块组件</li>
+<li>实体的原型更改或更改共享组件后导致的<strong>结构更改</strong>，Unity会把实体移动到新的Chunk中，但是这不会影响到原Chunk和新Chunk 组件的值。</li>
+</ul>
+<h2 id="定义">定义</h2>
+<p>与普通组件没有任何不同，只是把它添加到Entity上还是Chunk上的区别。</p>
+<pre><code class="language-csharp">public struct ExampleChunkComponent : IComponentData
+{
+    public int Value;
+}
+</code></pre>
+<h2 id="使用">使用</h2>
+<p>添加、删除、设置 <strong>块组件</strong> 用到的是一套全新API，与Entity不同。</p>
+<pre><code class="language-csharp">private void ChunkComponentExample(Entity e)
+{
+    // 将ChunkComponent添加到Entity所在的Chunk上。
+    EntityManager.AddChunkComponent&lt;ExampleChunkComp&gt;(e);
+
+    // 获取包含**ExampleComponent普通组件**和**ExampleChunkComp块组件**的ChunkQuery
+    // 为了区分普通组件和块组件，必须使用**ComponentType.ChunkComponent&lt;T&gt;**来表示块组件。
+    EntityQuery query = GetEntityQuery(typeof(ExampleComponent), ComponentType.ChunkComponent&lt;ExampleChunkComp&gt;());
+    NativeArray&lt;ArchetypeChunk&gt; chunks = query.ToArchetypeChunkArray(Allocator.Temp);
+
+    // 设置第一个Chunk的组件值
+    EntityManager.SetChunkComponentData&lt;ExampleChunkComp&gt;(chunks[0], new ExampleChunkComp { Value = 6 });
+
+    // 获取第一个Chunk的组件值
+    ExampleChunkComp exampleChunkComp = EntityManager.GetChunkComponentData&lt;ExampleChunkComp&gt;(chunks[0]);
+    Debug.Log(exampleChunkComp.Value)    // 6
+}
+</code></pre>
+<blockquote>
+<p><strong>如果只想从块组件中读而非写，可以使用ComponentType.ChunkComponentReadOnly<T>来表示为只读。在Job中可以避免不必要的调度约束，避免同步点的产生。<br>
+尽管块组件属于块本身，但在实体上添加或删除块组件会更改其原型并导致结构更改,导致Entity被移动到其他Chunk中。</strong></p>
+</blockquote>
+<p>其他API：</p>
+<ul>
+<li><strong>EntityManager.AddComponentData 给Entity添加块组件<br>
+（不知是否为旧API 和 EntityManager.AddChunkComponent是否一样</strong></li>
+</ul>
+<h2 id="通过entity来获取-设置块组件">通过Entity来获取、设置块组件</h2>
+<pre><code class="language-csharp">private void ChunkComponentExample(Entity e)
+{
+    // Sets the ExampleChunkComp value of the entity's chunk.
+    EntityManager.SetChunkComponentData&lt;MyChunkComp&gt;(e, new MyChunkComp { Value = 6 });
+
+    // Sets the ExampleChunkComp value of the entity's chunk.
+    MyChunkComp myChunkComp = EntityManager.GetChunkComponentData&lt;MyChunkComp&gt;(e);
+    Debug.Log(myChunkComp.Value)    // 6
+}
+</code></pre>
+<h2 id="在job中使用">在Job中使用</h2>
+<p>因为Job中不能使用EntityManager，所以访问Chunk组件需要ComponentTypeHandle</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Aspects : DOP中的抽象]]></title>
+        <id>https://panchangxin123.github.io/post/aspects-dop-zhong-de-chou-xiang/</id>
+        <link href="https://panchangxin123.github.io/post/aspects-dop-zhong-de-chou-xiang/">
+        </link>
+        <updated>2022-12-04T12:21:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>Aspects是1.0中新引入的概念，非常接近OOP中的类。<br>
+相比之前极大的提升了代码可读性！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Aspects是1.0中新引入的概念，非常接近OOP中的类。<br>
+相比之前极大的提升了代码可读性！</p>
+<!-- more -->
+<p>IAspects 是可以嵌套的。</p>
+<pre><code class="language-csharp">readonly partial struct VerticalMovementAspect : IAspect
+{
+    readonly RefRW&lt;LocalToWorldTransform&gt; m_Transform;
+    readonly RefRO&lt;RotationSpeed&gt; m_Speed;
+
+    public void Move(double elapsedTime)
+    {
+        m_Transform.ValueRW.Value.Position.y = (float)math.sin(elapsedTime * m_Speed.ValueRO.RadiansPerSecond);
+    }
+}
+</code></pre>
+<p>使用了Aspect之后可以直接Query这个Aspect类型.</p>
+<pre><code class="language-csharp">foreach (var movement in SystemAPI.Query&lt;VerticalMovementAspect&gt;())
+{
+    movement.Move(elapsedTime);
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[EnableableComponent]]></title>
+        <id>https://panchangxin123.github.io/post/enableablecomponent/</id>
+        <link href="https://panchangxin123.github.io/post/enableablecomponent/">
+        </link>
+        <updated>2022-12-04T07:04:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>DOTS 1.0的重要更新之一。<br>
+允许把Component进行Enable和Disable，当Component被Disable后就不会再被查询到了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>DOTS 1.0的重要更新之一。<br>
+允许把Component进行Enable和Disable，当Component被Disable后就不会再被查询到了。</p>
+<!-- more -->
+<p>之前需要RemoveComponent，如果频繁移除组件 这会导致结构更改，造成严重的性能问题。<br>
+还可以使用EnableableComponent来替代一些内存大小为0的TagComponent,从而减少原型数量，更好的利用Chunk内存。<br>
+启用和关闭EnableableComponent时不会导致ECS移动任何数据，所以在Job中操作时 无需使用命令缓冲区也不会创建同步点。<br>
+但是为了防止竞争条件，对EnableableComponent有写权限的Job可能会导致主线程阻塞 直到当前Job结束，即使并没有真的修改EnableableComponent的启用状态，所以要尽量避免无意义的写权限。</p>
+<h2 id="使用">使用</h2>
+<pre><code class="language-csharp">// ... 在 SystemBase OnUpdate() 中
+Entity e = this.EntityManager.CreateEntity(typeof(Health));
+
+ComponentLookup&lt;Health&gt; healthLookup = this.GetComponentLookup&lt;&gt;();
+
+// true
+bool b = healthLookup.IsComponentEnabled(e);
+
+// 禁用
+healthLookup.SetComponentEnabled(e, false);
+
+// 尽管被禁用，组件仍然可以被读取和修改
+Health h = healthLookup(e);
+</code></pre>
+<pre><code class="language-csharp">public struct Health : IComponentData, IEnableableComponent
+{
+    public float Value;
+}
+// ... 在 a SystemBase OnUpdate() 中
+Entity e1 = this.EntityManager.CreateEntity(typeof(Health), typeof(Translation));
+Entity e2 = this.EntityManager.CreateEntity(typeof(Health), typeof(Translation));
+
+// true 
+bool b = this.EntityManager.IsComponentEnabled&lt;Health&gt;(e1);
+
+// 关闭e1的组件
+this.EntityManager.SetComponentEnabled&lt;Health&gt;(e1, false);
+
+EntityQuery query = new EntityQueryBuilder(Allocator.Temp).WithAll&lt;Health, Translation&gt;().Build(this);
+
+// 返回查找的Entity数组，结果不包含e1
+var entities = query.ToEntityArray(Allocator.Temp);
+
+// 返回结果不包含e1的Heath组件
+var healths = query.ToComponentDataArray&lt;Health&gt;(Allocator.Temp);
+
+// 返回结果不包含e1的Translation组件
+// 因为e1不满足EntityQuery的原型规则，虽然e1的Heath只是被禁用并没有移动到新原型Chunk，
+// 但是被禁用Heath后EntityQuery就会视为没有Heath，从而查询不到这个Entity
+var translations = query.ToComponentDataArray&lt;Translation&gt;(Allocator.Temp);
+
+// 使用EntityQueryOptions.IgnoreComponentEnabledState客户无视EnableableComponent状态
+var queryIgnoredEnableable = new EntityQueryBuilder(Allocator.Temp).WithAll&lt;Health, Translation&gt;().WithOptions(EntityQueryOptions.IgnoreComponentEnabledState).Build(this);
+
+// 查询的结果包含e1
+var translationsAll = queryIgnoreEnableable.ToComponentDataArray&lt;Translation&gt;(Allocator.Temp);
+</code></pre>
+<h2 id="异步操作"><strong>异步操作</strong></h2>
+<p>为了安全和确定地处理EnableableComponent，所有同步<code>EntityQuery</code>操作（忽略过滤的操作除外）都会自动等待具有EnableableComponent写权限的Job执行完。</p>
+<p>非同步<code>EntityQuery</code> 收集和分散操作，例如<code>[EntityQuery.ToEntityArrayAsync()](https://docs.unity3d.com/Packages/com.unity.entities@1.0/api/Unity.Entities.EntityQuery.ToEntityArrayAsync.html)</code> 调度作业以执行请求的操作。这些方法必须返回<code>NativeList</code> 而不是<code>NativeArray</code>，因为查询匹配的实体数在作业运行之前是未知的，但容器必须立即返回给调用方。</p>
+<p>此列表的初始容量根据可匹配查询的最大实体数保守地调整大小，但其最终长度可能会更短。在异步收集或分散Job完成之前，对列表的任何读取或写入（包括其当前长度、容量或基指针）都会导致JobsDebugger安全错误。但是，您可以安全地将列表传递给依赖的后续Job。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Archetypes和 StructuralChange]]></title>
+        <id>https://panchangxin123.github.io/post/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai/</id>
+        <link href="https://panchangxin123.github.io/post/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai/">
+        </link>
+        <updated>2022-12-04T06:14:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>在Unity中可以把某种Component组合的Entity设定为一种<strong>Archetype</strong>.<br>
+所有导致需要重新组织内存Chunk或Chunk内容的操作，都被称为<strong>StructuralChange,会产生内存拷贝操作</strong>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在Unity中可以把某种Component组合的Entity设定为一种<strong>Archetype</strong>.<br>
+所有导致需要重新组织内存Chunk或Chunk内容的操作，都被称为<strong>StructuralChange,会产生内存拷贝操作</strong>。</p>
+<!-- more -->
+<p>相同Archetype的Entity会整齐的排布在一起 同一块连续的非托管内存空间中，这个内存空间在Unity中被称为Chunk。<br>
+<img src="https://panchangxin123.github.io/post-images/1670135332500.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135338460.png" alt="" loading="lazy"></p>
+<h1 id="array-of-structs-struct-of-arrays">Array of Structs / Struct of Arrays</h1>
+<figure data-type="image" tabindex="1"><img src="https://panchangxin123.github.io/post-images/1670135449586.png" alt="" loading="lazy"></figure>
+<h3 id="aos">AOS</h3>
+<p>传统的面向对象是AOS内存结构，每个结构体的成员依次排布开来，当添加一个新内容时直接在Array末尾Append即可。</p>
+<h3 id="soa">SOA</h3>
+<p>而在DOTS中内存排布是SOA结构，每个结构体的相同位置的成员会放在一起，当添加新内容时就需要将新元素的各个成员插入到之前的Array中，这将会产生内存拷贝从而浪费性能。<br>
+此时Unity引入了Chunk概念，Chunk是固定大小的。<br>
+因为Chunk是固定大小的(<strong>16k</strong>)，ArchetypesChunk能放下多少个元素也是可以计算出来的，当向Chunk中添加新元素时也可更方便。<br>
+目前Chunk的限制是同一个Chunk中Entity最多不可超过128个。<br>
+<strong>1.0之前Chunk是不限制Entity个数的，社区对此改动有争议 未来版本需留意。</strong><br>
+<img src="https://panchangxin123.github.io/post-images/1670135576197.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135669148.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135581810.png" alt="" loading="lazy"></p>
+<p>Archetype下有多个Chunk，每个Chunk下包含各个Component类型的数组<br>
+当使用IJobEntity时，就是按顺序访问每一个Chunk中的Component数组。<br>
+但当使用IJobChunk时就可以访问Chunk的ComponentData：<strong>GetChunkComponentData</strong>,<strong>SetChunkComponentData</strong><br>
+可以做到只处理有变化的Chunk<br>
+在IJobChunk中出现的ComponentTypeHandle 就是用于标记想要的这个Component属于Chunk中的哪个Array？</p>
+<p><a href="https://www.notion.so/IJobEntity-IJobChunk-0696e0d7e9a046ce92923b34963b0ab9">IJobEntity , IJobChunk</a></p>
+<h1 id="structuralchange结构更改">StructuralChange(结构更改)</h1>
+<p>所有导致需要重新组织内存块或内存块内容的操作，都被称为<strong>StructuralChange,会产生内存拷贝操作</strong>。<br>
+<strong>StructuralChange</strong>分为两种，一种是改变结构，另一种是改变内容。<br>
+这两种改变都只能在主线程中操作，而不能在job线程，效率很差。<br>
+（<strong>不同Archetype中相同的组件，并不会像图中一样内存连续，此图只用于演示StructuralChange。</strong>）<br>
+<img src="https://panchangxin123.github.io/post-images/1670135714617.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135718093.png" alt="" loading="lazy"><br>
+<strong>添加或删除某个Entity的Component导致它的Archetype发生变化就属于StructuralChange操作。</strong><br>
+<strong>另外 添加或删除Entity、设置ShareComponent的值也都会发生StructuralChange。需尽量避免。</strong><br>
+<img src="https://panchangxin123.github.io/post-images/1670135759446.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,387 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archetypes和 StructuralChange | 热爱我的热爱</title>
+<meta name="description" content="人皆有梦，多寡不同。" />
+<link rel="shortcut icon" href="https://panchangxin123.github.io/favicon.ico">
+<link rel="stylesheet" href="https://panchangxin123.github.io/styles/main.css">
+
+<script src="https://panchangxin123.github.io/media/js/jquery.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/aos.js"></script>
+<script src="https://panchangxin123.github.io/media/js/pace.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/view-image.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://panchangxin123.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="在Unity中可以把某种Component组合的Entity设定为一种Archetype.
+所有导致需要重新组织内存Chunk或Chunk内容的操作，都被称为StructuralChange,会产生内存拷贝操作。
+
+相同Archetype的..." />
+    <meta name="keywords" content="DOTS,ECS" />
+    <script src="https://panchangxin123.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://panchangxin123.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://panchangxin123.github.io"><img src="\media\images\custom-headerLogo.jpg" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://panchangxin123.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1670375959979" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://panchangxin123.github.io/post-images/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2022-12-04"><i class="fa fa-calendar"></i><span class="lately">3 天前</span></time>
+              
+              <a href="https://panchangxin123.github.io/post/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/post/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai/"> </span>
+              </a>
+              <span id="/post/dots-ru-men-archetypes-yuan-xing-he-structuralchangejie-gou-geng-gai/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-0 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-1 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Archetypes和 StructuralChange</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>在Unity中可以把某种Component组合的Entity设定为一种<strong>Archetype</strong>.<br>
+所有导致需要重新组织内存Chunk或Chunk内容的操作，都被称为<strong>StructuralChange,会产生内存拷贝操作</strong>。</p>
+<!-- more -->
+<p>相同Archetype的Entity会整齐的排布在一起 同一块连续的非托管内存空间中，这个内存空间在Unity中被称为Chunk。<br>
+<img src="https://panchangxin123.github.io/post-images/1670135332500.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135338460.png" alt="" loading="lazy"></p>
+<h1 id="array-of-structs-struct-of-arrays">Array of Structs / Struct of Arrays</h1>
+<figure data-type="image" tabindex="1"><img src="https://panchangxin123.github.io/post-images/1670135449586.png" alt="" loading="lazy"></figure>
+<h3 id="aos">AOS</h3>
+<p>传统的面向对象是AOS内存结构，每个结构体的成员依次排布开来，当添加一个新内容时直接在Array末尾Append即可。</p>
+<h3 id="soa">SOA</h3>
+<p>而在DOTS中内存排布是SOA结构，每个结构体的相同位置的成员会放在一起，当添加新内容时就需要将新元素的各个成员插入到之前的Array中，这将会产生内存拷贝从而浪费性能。<br>
+此时Unity引入了Chunk概念，Chunk是固定大小的。<br>
+因为Chunk是固定大小的(<strong>16k</strong>)，ArchetypesChunk能放下多少个元素也是可以计算出来的，当向Chunk中添加新元素时也可更方便。<br>
+目前Chunk的限制是同一个Chunk中Entity最多不可超过128个。<br>
+<strong>1.0之前Chunk是不限制Entity个数的，社区对此改动有争议 未来版本需留意。</strong><br>
+<img src="https://panchangxin123.github.io/post-images/1670135576197.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135669148.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135581810.png" alt="" loading="lazy"></p>
+<p>Archetype下有多个Chunk，每个Chunk下包含各个Component类型的数组<br>
+当使用IJobEntity时，就是按顺序访问每一个Chunk中的Component数组。<br>
+但当使用IJobChunk时就可以访问Chunk的ComponentData：<strong>GetChunkComponentData</strong>,<strong>SetChunkComponentData</strong><br>
+可以做到只处理有变化的Chunk<br>
+在IJobChunk中出现的ComponentTypeHandle 就是用于标记想要的这个Component属于Chunk中的哪个Array？</p>
+<p><a href="https://www.notion.so/IJobEntity-IJobChunk-0696e0d7e9a046ce92923b34963b0ab9">IJobEntity , IJobChunk</a></p>
+<h1 id="structuralchange结构更改">StructuralChange(结构更改)</h1>
+<p>所有导致需要重新组织内存块或内存块内容的操作，都被称为<strong>StructuralChange,会产生内存拷贝操作</strong>。<br>
+<strong>StructuralChange</strong>分为两种，一种是改变结构，另一种是改变内容。<br>
+这两种改变都只能在主线程中操作，而不能在job线程，效率很差。<br>
+（<strong>不同Archetype中相同的组件，并不会像图中一样内存连续，此图只用于演示StructuralChange。</strong>）<br>
+<img src="https://panchangxin123.github.io/post-images/1670135714617.png" alt="" loading="lazy"><br>
+<img src="https://panchangxin123.github.io/post-images/1670135718093.png" alt="" loading="lazy"><br>
+<strong>添加或删除某个Entity的Component导致它的Archetype发生变化就属于StructuralChange操作。</strong><br>
+<strong>另外 添加或删除Entity、设置ShareComponent的值也都会发生StructuralChange。需尽量避免。</strong><br>
+<img src="https://panchangxin123.github.io/post-images/1670135759446.png" alt="" loading="lazy"></p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/enableablecomponent.jpg');"></div>
+                 <a href="https://panchangxin123.github.io/post/enableablecomponent/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">EnableableComponent</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://panchangxin123.github.io/post-images/dots-ru-men-authoring-he-bakerchuan-tong-component-zhuan-huan.png');"></div>
+                 <a href="https://panchangxin123.github.io/post/dots-ru-men-authoring-he-bakerchuan-tong-component-zhuan-huan/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-12-04">2022-12-04</time>
+                  <h4 class="title white no-margin">Authoring和Baker 转换</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://panchangxin123.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/an-zhuo-adb-diao-shi.webp');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/an-zhuo-adb-diao-shi/">安卓ADB调试</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/system-shi-xu-yu-updategroup.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-07">2022-12-07</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/system-shi-xu-yu-updategroup/">System 时序与 UpdateGroup</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://panchangxin123.github.io/post-images/icleanupcomponentdata.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-12-04">2022-12-04</time>
+                      <h4 class="title usmall">
+                        <a href="https://panchangxin123.github.io/post/icleanupcomponentdata/">ICleanupComponentData</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://panchangxin123.github.io/tag/ZHtPZr59m/" class="ctag ctag-0 ctag-ZHtPZr59m" aria-label="">Android</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/34frF9BGT/" class="ctag ctag-1 ctag-34frF9BGT" aria-label="">DOTS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/GZ2k0NncM/" class="ctag ctag-2 ctag-GZ2k0NncM" aria-label="">ECS</a>
+                    
+                      <a href="https://panchangxin123.github.io/tag/kArySTdSH/" class="ctag ctag-3 ctag-kArySTdSH" aria-label="">JobSystem</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://panchangxin123.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">热爱我的热爱</a></h4>
+                    <p class="founder">人皆有梦，多寡不同。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://panchangxin123.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          已备案：京ICP备19016292号-1
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: '5Wrqx8knAuF4Q2BOMF5qKAm9-gzGzoHsz' ,
+        appKey: 'ipIA9uUSjBZowuPcEIKwmk09',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true//true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://panchangxin123.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
